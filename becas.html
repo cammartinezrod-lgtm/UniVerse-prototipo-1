@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVerse | Becas y Convocatorias</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+}
+
+/* HEADER (Consistencia visual) */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index: 1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#6D28D9;
+}
+
+nav a{
+    text-decoration:none;
+    margin:0 15px;
+    color:#555;
+    font-weight:500;
+    transition: color 0.3s;
+}
+
+nav a:hover{
+    color:#6D28D9;
+}
+
+.botones a{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.login{
+    border:2px solid #6D28D9;
+    color:#6D28D9;
+}
+
+.registro{
+    background:#6D28D9;
+    color:white;
+    margin-left:10px;
+}
+
+/* SECCIÓN INTRODUCCIÓN */
+.scholarships-container {
+    padding: 60px 8% 30px 8%;
+    text-align: center;
+}
+
+.scholarships-container h1 {
+    font-size: 36px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.scholarships-container p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* FILTROS */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: white;
+    color: #555;
+    border: 2px solid #e2e8f0;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #6D28D9;
+    color: white;
+    border-color: #6D28D9;
+}
+
+/* GRID DE BECAS */
+.scholarships-grid {
+    padding: 0 8% 80px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.scholarship-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.08);
+}
+
+.card-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.institution {
+    font-size: 13px;
+    color: #8B5CF6;
+    font-weight: 600;
+}
+
+.deadline-tag {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.urgent {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.normal {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.scholarship-card h3 {
+    font-size: 18px;
+    color: #1f2937;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.coverage {
+    font-size: 14px;
+    color: #059669;
+    font-weight: 600;
+    margin-bottom: 15px;
+    background: #ecfdf5;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.requirements {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.requirements strong {
+    color: #374151;
+}
+
+.card-action {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+    text-align: right;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    color: #6D28D9;
+    border: 2px solid #6D28D9;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.view-btn:hover {
+    background: #6D28D9;
+    color: white;
+}
+
+/* FOOTER */
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+    .scholarships-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:650px){
+    .scholarships-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌌 UniVerse</div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="recursos.html">Recursos</a>
+        <a href="empleos.html">Empleos</a>
+        <a href="becas.html">Becas</a>
+        <a href="comunidad.html">Comunidad</a>
+    </nav>
+    <div class="botones">
+        <a href="login.html" class="login">Iniciar Sesión</a>
+        <a href="registro.html" class="registro">Registrarse</a>
+    </div>
+</header>
+
+<main>
+    <section class="scholarships-container">
+        <h1>Becas y Financiamiento</h1>
+        <p>Explora convocatorias nacionales e internacionales vigentes para financiar tus estudios de pregrado, intercambios o especializaciones.</p>
+        
+        <div class="filters">
+            <button class="filter-btn active">Todas</button>
+            <button class="filter-btn">Nacionales</button>
+            <button class="filter-btn">Internacionales</button>
+            <button class="filter-btn">Intercambio</button>
+            <button class="filter-btn">Excelencia Académica</button>
+        </div>
+    </section>
+
+    <section class="scholarships-grid">
+        <div class="scholarship-card">
+            <div>
+                <div class="card-header-info">
+                    <span class="institution">Fundación Santander</span>
+                    <span class="deadline-tag urgent">⏳ Cierra en 3 días</span>
+                </div>
+                <h3>Beca Santander Estudios | Pregrado 2026</h3>
+                <span class="coverage">💰 Apoyo económico de S/. 3,000</span>
+                <p class="requirements"><strong>Requisitos:</strong> Ser estudiante regular de 5to a 9no ciclo, pertenecer al tercio superior y contar con promedio histórico mayor a 15.</p>
+            </div>
+            <div class="card-action">
+                <a href="#" class="view-btn">Ver Convocatoria</a>
+            </div>
+        </div>
+
+        <div class="scholarship-card">
+            <div>
+                <div class="card-header-info">
+                    <span class="institution">PRONABEC</span>
+                    <span class="deadline-tag normal">⏳ Cierra en 15 días</span>
+                </div>
+                <h3>Beca Permanencia de Estudios Nacional</h3>
+                <span class="coverage">💎 Cobertura 100% Manutención y Útiles</span>
+                <p class="requirements"><strong>Requisitos:</strong> Estudiantes de universidades públicas, con excelente rendimiento académico y en situación de vulnerabilidad económica.</p>
+            </div>
+            <div class="card-action">
+                <a href="#" class="view-btn">Ver Convocatoria</a>
+            </div>
+        </div>
+
+        <div class="scholarship-card">
+            <div>
+                <div class="card-header-info">
+                    <span class="institution">Alianza del Pacífico</span>
+                    <span class="deadline-tag normal">⏳ Cierra en 20 days</span>
+                </div>
+                <h3>Plataforma de Movilidad Estudiantil</h3>
+                <span class="coverage">✈️ Intercambio Completo (Pasajes + Estadía)</span>
+                <p class="requirements"><strong>Requisitos:</strong> Haber aprobado el 50% de la carrera. Destinos disponibles: Chile, Colombia y México por un semestre académico.</p>
+            </div>
+            <div class="card-action">
+                <a href="#" class="view-btn">Ver Convocatoria</a>
+            </div>
+        </div>
+
+        <div class="scholarship-card">
+            <div>
+                <div class="card-header-info">
+                    <span class="institution">Embajada de Francia</span>
+                    <span class="deadline-tag normal">⏳ Cierra en 1 mes</span>
+                </div>
+                <h3>Beca de Excelencia Major - Pregrado</h3>
+                <span class="coverage">🇪🇺 100% Matrícula + Seguro Médico</span>
+                <p class="requirements"><strong>Requisitos:</strong> Dominio de idioma francés (Nivel B2 mínimo), carta de aceptación de la universidad francesa de destino y récord de notas sobresaliente.</p>
+            </div>
+            <div class="card-action">
+                <a href="#" class="view-btn">Ver Convocatoria</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <h3>🌌 UniVerse</h3>
+    <p>Tu vida universitaria en un solo lugar.</p>
+</footer>
+
+</body>
+</html>
