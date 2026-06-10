@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniVerse | Tipo de Usuario</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#2563EB,#7C3AED);
+padding:20px;
+}
+
+.container{
+max-width:900px;
+width:100%;
+background:white;
+padding:50px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+text-align:center;
+}
+
+.logo{
+font-size:60px;
+margin-bottom:15px;
+}
+
+h1{
+color:#2563EB;
+margin-bottom:10px;
+}
+
+.subtitulo{
+color:#666;
+margin-bottom:40px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+border:2px solid #E5E7EB;
+border-radius:20px;
+padding:30px;
+transition:.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#2563EB;
+}
+
+.icon{
+font-size:70px;
+margin-bottom:20px;
+}
+
+.card h2{
+color:#2563EB;
+margin-bottom:15px;
+}
+
+.card p{
+color:#555;
+line-height:1.7;
+margin-bottom:20px;
+}
+
+.btn{
+padding:12px 25px;
+border:none;
+border-radius:10px;
+background:#2563EB;
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#1D4ED8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+🌌
+</div>
+
+<h1>¿Cómo deseas usar UniVerse?</h1>
+
+<p class="subtitulo">
+Selecciona el perfil que mejor te representa.
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">
+🎓
+</div>
+
+<h2>Estudiante</h2>
+
+<p>
+Accede a becas, prácticas preprofesionales,
+empleos, recursos académicos, mentorías y
+herramientas impulsadas por IA.
+</p>
+
+<button class="btn"
+onclick="seleccionar('estudiante')">
+Continuar
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="icon">
+👨‍🏫
+</div>
+
+<h2>Profesor / Mentor</h2>
+
+<p>
+Comparte tu experiencia profesional,
+orienta estudiantes y participa en
+programas de mentoría universitaria.
+</p>
+
+<button class="btn"
+onclick="seleccionar('profesor')">
+Continuar
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function seleccionar(tipo){
+
+localStorage.setItem("tipo",tipo);
+
+if(tipo==="estudiante"){
+
+window.location.href =
+"perfil-estudiante.html";
+
+}
+
+if(tipo==="profesor"){
+
+window.location.href =
+"perfil-profesor.html";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

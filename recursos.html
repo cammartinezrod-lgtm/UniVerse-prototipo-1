@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVerse | Biblioteca de Recursos Académicos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+}
+
+/* HEADER (Igual al Index para mantener consistencia) */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index: 1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#6D28D9;
+}
+
+nav a{
+    text-decoration:none;
+    margin:0 15px;
+    color:#555;
+    font-weight:500;
+    transition: color 0.3s;
+}
+
+nav a:hover{
+    color:#6D28D9;
+}
+
+.botones a{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.login{
+    border:2px solid #6D28D9;
+    color:#6D28D9;
+}
+
+.registro{
+    background:#6D28D9;
+    color:white;
+    margin-left:10px;
+}
+
+/* SECCIÓN BUSCADOR Y FILTROS */
+.search-container {
+    padding: 60px 8% 30px 8%;
+    text-align: center;
+}
+
+.search-container h1 {
+    font-size: 36px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.search-container p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    gap: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: #6D28D9;
+}
+
+.search-bar button {
+    padding: 0 25px;
+    background: #6D28D9;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-bar button:hover {
+    background: #5b21b6;
+}
+
+/* FILTROS POR CATEGORÍA */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: white;
+    color: #555;
+    border: 2px solid #e2e8f0;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #6D28D9;
+    color: white;
+    border-color: #6D28D9;
+}
+
+/* SUBIR MATERIAL BANNER */
+.upload-box {
+    background: white;
+    margin: 0 8% 40px 8%;
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.02);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upload-box p {
+    font-weight: 500;
+    color: #334155;
+}
+
+.upload-btn {
+    padding: 12px 20px;
+    background: #8B5CF6;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background: #7c3aed;
+}
+
+/* GRILLA DE RECURSOS */
+.resources-grid {
+    padding: 0 8% 80px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.resource-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.05);
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    background: #f3e8ff;
+    color: #6D28D9;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.resource-card h3 {
+    font-size: 18px;
+    color: #1f2937;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.author {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+.rating {
+    font-size: 14px;
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.download-btn {
+    text-decoration: none;
+    color: #6D28D9;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    color: #4c1d95;
+}
+
+/* FOOTER */
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .upload-box {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media(max-width:600px){
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    .search-bar {
+        flex-direction: column;
+    }
+    .search-bar button {
+        padding: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌌 UniVerse</div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="recursos.html">Recursos</a>
+        <a href="empleos.html">Empleos</a>
+        <a href="becas.html">Becas</a>
+        <a href="comunidad.html">Comunidad</a>
+    </nav>
+    <div class="botones">
+        <a href="login.html" class="login">Iniciar Sesión</a>
+        <a href="registro.html" class="registro">Registrarse</a>
+    </div>
+</header>
+
+<main>
+    <section class="search-container">
+        <h1>Biblioteca Académica</h1>
+        <p>Encuentra y comparte apuntes, exámenes pasados y guías de estudio verificadas por la comunidad.</p>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Ej. Cálculo II, Anatomía, Historia del Arte...">
+            <button>Buscar</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Ingeniería</button>
+            <button class="filter-btn">Medicina</button>
+            <button class="filter-btn">Derecho</button>
+            <button class="filter-btn">Negocios</button>
+            <button class="filter-btn">Diseño</button>
+        </div>
+    </section>
+
+    <section class="upload-box">
+        <p>¿Tienes apuntes que puedan ayudar a otros compañeros de facultad?</p>
+        <a href="#" class="upload-btn">➕ Subir mi Material</a>
+    </section>
+
+    <section class="resources-grid">
+        <div class="resource-card">
+            <span class="tag">Ingeniería</span>
+            <h3>Formulario Completo de Integrales y Derivadas</h3>
+            <p class="author">Por: Carlos Mendoza • PDF</p>
+            <div class="card-footer">
+                <span class="rating">⭐ 4.9 (124)</span>
+                <a href="https://ocw.unizar.es/ciencias-experimentales/calculo-integral-para-primeros-cursos-univesitarios/Miscelaneaa/formulario.pdf" target="_blank" class="download-btn">📥 Descargar</a>
+            </div>
+        </div>
+
+        <div class="resource-card">
+            <span class="tag">Medicina</span>
+            <h3>Resumen de Anatomía Humana: Sistema Óseo</h3>
+            <p class="author">Por: Dra. Andrea R. </p>
+            <div class="card-footer">
+                <span class="rating">⭐ 4.8 (89)</span>
+                <a href="https://es.slideshare.net/slideshow/sistema-oseo-humano/13149502" target="_blank" class="download-btn">📥 Descargar</a>
+            </div>
+        </div>
+
+        <div class="resource-card">
+            <span class="tag">Negocios</span>
+            <h3>Guía Práctica: Introducción a la Macroeconomía</h3>
+            <p class="author">Por: Juan Diego Torres • PPTX</p>
+            <div class="card-footer">
+                <span class="rating">⭐ 4.6 (42)</span>
+                <a href="https://archive.org/download/macroeconomics0000abcl_d9d6/macroeconomics0000abcl_d9d6.pdf" target="_blank" class="download-btn">📥 Descargar</a>
+            </div>
+        </div>
+
+        <div class="resource-card">
+            <span class="tag">Diseño</span>
+            <h3>Fundamentos del Color y Composición Visual</h3>
+            <p class="author">Por: Sofía Palacios • PDF</p>
+            <div class="card-footer">
+                <span class="rating">⭐ 5.0 (65)</span>
+                <a href="https://colorearte.cl/wp-content/uploads/2017/06/Teoria-del-Color.pdf" target="_blank" class="download-btn">📥 Descargar</a>
+            </div>
+        </div>
+
+        <div class="resource-card">
+            <span class="tag">Derecho</span>
+            <h3>Casos de Estudio de Derecho Civil I</h3>
+            <p class="author">Por: Miguel Ángel Flores </p>
+            <div class="card-footer">
+                <span class="rating">⭐ 4.7 (31)</span>
+                <a href="https://www.studocu.com/pe/course/universidad-de-lima/derecho-civil-i/3847710" target="_blank" class="download-btn">📥 Descargar</a>
+            </div>
+        </div>
+
+        <div class="resource-card">
+            <span class="tag">Ingeniería</span>
+            <h3>Ejercicios Resueltos de Programación en C++</h3>
+            <p class="author">Por: Luis Alberto Gómez </p>
+            <div class="card-footer">
+                <span class="rating">⭐ 4.9 (110)</span>
+                <a href="https://www.geeksforgeeks.org/cpp/cpp-exercises/" target="_blank" class="download-btn">📥 Descargar</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <h3>🌌 UniVerse</h3>
+    <p>Tu vida universitaria en un solo lugar.</p>
+</footer>
+
+</body>
+</html>

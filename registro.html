@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVerse - Registro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    min-height:100vh;
+    padding:40px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#2563EB;
+    margin-bottom:30px;
+}
+
+.section{
+    margin-bottom:25px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+.tipo{
+    display:flex;
+    gap:20px;
+}
+
+.card{
+    flex:1;
+    padding:20px;
+    border:2px solid #ddd;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.card:hover{
+    border-color:#2563EB;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#2563EB;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.hidden{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌌 Registro UniVerse</h1>
+
+<!-- TIPO -->
+<div class="section">
+
+<h2>👤 Elige tu rol</h2>
+
+<div class="tipo">
+
+<div class="card" onclick="seleccionar('estudiante')">
+🎓 <b>Estudiante</b>
+<p>Accede a becas, empleos y cursos</p>
+</div>
+
+<div class="card" onclick="seleccionar('profesor')">
+👨‍🏫 <b>Profesor</b>
+<p>Brinda mentorías y guía estudiantes</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- FORM COMÚN -->
+<div class="section">
+
+<h2>📩 Datos de acceso</h2>
+
+<input id="nombre" type="text" placeholder="Nombre completo">
+<input id="correo" type="email" placeholder="Correo universitario">
+<input id="password" type="password" placeholder="Contraseña">
+
+</div>
+
+<!-- ESTUDIANTE -->
+<div id="estudianteForm" class="hidden">
+
+<div class="section">
+<h2>🎓 Datos Estudiante</h2>
+
+<input type="text" id="uniEst" placeholder="Universidad">
+<input type="text" id="carrera" placeholder="Carrera">
+<input type="text" id="ciclo" placeholder="Ciclo">
+</div>
+
+</div>
+
+<!-- PROFESOR -->
+<div id="profesorForm" class="hidden">
+
+<div class="section">
+<h2>👨‍🏫 Datos Profesor</h2>
+
+<input type="text" id="uniProf" placeholder="Universidad">
+<input type="text" id="especialidad" placeholder="Especialidad">
+<input type="number" id="experiencia" placeholder="Años de experiencia">
+</div>
+
+</div>
+
+<button onclick="registrar()">
+Crear Cuenta
+</button>
+
+</div>
+
+<script>
+
+let rolSeleccionado = null;
+
+function seleccionar(rol){
+    rolSeleccionado = rol;
+
+    document.getElementById("estudianteForm").classList.add("hidden");
+    document.getElementById("profesorForm").classList.add("hidden");
+
+    if(rol === "estudiante"){
+        document.getElementById("estudianteForm").classList.remove("hidden");
+    }else{
+        document.getElementById("profesorForm").classList.remove("hidden");
+    }
+}
+
+function registrar(){
+
+const nombre = document.getElementById("nombre").value;
+const correo = document.getElementById("correo").value;
+const password = document.getElementById("password").value;
+
+if(!rolSeleccionado || !nombre || !correo || !password){
+    alert("Completa todos los campos");
+    return;
+}
+
+let usuario = {
+    nombre,
+    correo,
+    password,
+    rol: rolSeleccionado
+};
+
+// guardar datos extra
+if(rolSeleccionado === "estudiante"){
+    usuario.universidad = document.getElementById("uniEst").value;
+    usuario.carrera = document.getElementById("carrera").value;
+    usuario.ciclo = document.getElementById("ciclo").value;
+}else{
+    usuario.universidad = document.getElementById("uniProf").value;
+    usuario.especialidad = document.getElementById("especialidad").value;
+    usuario.experiencia = document.getElementById("experiencia").value;
+}
+
+// guardar en localStorage
+localStorage.setItem("usuario", JSON.stringify(usuario));
+
+// sesión activa
+localStorage.setItem("sesion", JSON.stringify(usuario));
+
+// redirigir según rol
+if(rolSeleccionado === "estudiante"){
+    window.location.href = "dashboard-estudiante.html";
+}else{
+    window.location.href = "dashboard-profesor.html";
+}
+
+}
+
+</script>
+
+</body>
+</html>

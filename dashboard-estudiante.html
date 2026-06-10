@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniVerse | Dashboard Estudiante</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(180deg,#2563EB,#7C3AED);
+    color:white;
+    position:fixed;
+    padding:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+.menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:rgba(255,255,255,.15);
+}
+
+/* MAIN */
+
+.main{
+    margin-left:260px;
+    width:100%;
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.search{
+    width:350px;
+}
+
+.search input{
+    width:100%;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#2563EB;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.card h3{
+    color:#2563EB;
+    margin-bottom:10px;
+}
+
+.numero{
+    font-size:30px;
+    font-weight:700;
+    color:#7C3AED;
+}
+
+/* IA */
+
+.ai-box{
+    margin-top:25px;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    color:white;
+    border-radius:20px;
+    padding:25px;
+}
+
+.ai-box button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#2563EB;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* BECAS */
+
+.section{
+    margin-top:30px;
+}
+
+.section h2{
+    margin-bottom:20px;
+}
+
+.item{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.item button{
+    margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#2563EB;
+    color:white;
+    cursor:pointer;
+}
+
+/* CHATBOT */
+
+.chatbot{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#2563EB;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🌌 UniVerse
+</div>
+
+<div class="menu">
+
+<a href="#">🏠 Inicio</a>
+<a href="#">🎓 Becas</a>
+<a href="#">💼 Empleos</a>
+<a href="#">📚 Biblioteca</a>
+<a href="#">👨‍🏫 Mentorías</a>
+<a href="#">📅 Eventos</a>
+<a href="#">👥 Comunidad</a>
+<a href="#">⚙ Configuración</a>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+
+<div class="search">
+<input type="text" placeholder="Buscar becas, empleos, cursos...">
+</div>
+
+<div class="profile">
+<div class="avatar">A</div>
+<div>
+<b>Ana Torres</b><br>
+Estudiante
+</div>
+</div>
+
+</div>
+
+<!-- RESUMEN -->
+
+<div class="grid">
+
+<div class="card">
+<h3>🎓 Becas Disponibles</h3>
+<div class="numero">125</div>
+</div>
+
+<div class="card">
+<h3>💼 Empleos</h3>
+<div class="numero">342</div>
+</div>
+
+<div class="card">
+<h3>📚 Recursos</h3>
+<div class="numero">890</div>
+</div>
+
+<div class="card">
+<h3>👨‍🏫 Mentores</h3>
+<div class="numero">57</div>
+</div>
+
+</div>
+
+<!-- IA -->
+
+<div class="ai-box">
+
+<h2>🤖 UniVerse IA</h2>
+
+<p>
+Según tu perfil de Ingeniería de Sistemas,
+te recomendamos:
+</p>
+
+<ul>
+<li>Curso de Desarrollo Web Full Stack</li>
+<li>Beca Google Career Certificate</li>
+<li>Prácticas Frontend Junior</li>
+<li>Mentoría en Inteligencia Artificial</li>
+</ul>
+
+<button>
+Hablar con la IA
+</button>
+
+</div>
+
+<!-- BECAS -->
+
+<div class="section">
+
+<h2>🎓 Becas Destacadas</h2>
+
+<div class="item">
+<h3>Beca Santander Universidades</h3>
+<p>Financiamiento para estudiantes destacados.</p>
+<button>Ver Detalles</button>
+</div>
+
+<div class="item">
+<h3>Beca Google</h3>
+<p>Programas tecnológicos internacionales.</p>
+<button>Postular</button>
+</div>
+
+</div>
+
+<!-- EMPLEOS -->
+
+<div class="section">
+
+<h2>💼 Empleos y Prácticas</h2>
+
+<div class="item">
+<h3>Frontend Developer Junior</h3>
+<p>Empresa: TechSoft Perú</p>
+<button>Postular</button>
+</div>
+
+<div class="item">
+<h3>Practicante de Marketing Digital</h3>
+<p>Empresa: StartUp Perú</p>
+<button>Postular</button>
+</div>
+
+</div>
+
+<!-- MENTORES -->
+
+<div class="section">
+
+<h2>👨‍🏫 Mentores Recomendados</h2>
+
+<div class="item">
+<h3>Dr. Carlos Ramírez</h3>
+<p>Especialista en Desarrollo de Software</p>
+<button>Reservar Mentoría</button>
+</div>
+
+<div class="item">
+<h3>Mg. Laura Pérez</h3>
+<p>Especialista en Empleabilidad</p>
+<button>Reservar Mentoría</button>
+</div>
+
+</div>
+
+</div>
+
+<div class="chatbot">
+🤖
+</div>
+
+</body>
+</html>

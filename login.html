@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVerse - Iniciar Sesión</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+}
+
+.container{
+    width:900px;
+    background:white;
+    border-radius:25px;
+    display:flex;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* IZQUIERDA */
+.left{
+    width:50%;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.left h1{
+    font-size:36px;
+}
+
+.left p{
+    margin-top:10px;
+    font-size:16px;
+}
+
+/* DERECHA */
+.right{
+    width:50%;
+    padding:40px;
+}
+
+.logo{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    color:#2563EB;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+input:focus{
+    border-color:#2563EB;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#2563EB;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1D4ED8;
+}
+
+.error{
+    color:red;
+    text-align:center;
+    font-size:13px;
+    margin-top:10px;
+}
+
+a{
+    color:#7C3AED;
+    text-decoration:none;
+    font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- IZQUIERDA -->
+<div class="left">
+    <h1>Bienvenido a UniVerse 🌌</h1>
+    <p>Accede a becas, empleos, mentorías y oportunidades académicas.</p>
+</div>
+
+<!-- DERECHA -->
+<div class="right">
+
+    <div class="logo">🌌 UniVerse</div>
+    <p class="subtitle">Iniciar sesión</p>
+
+    <form onsubmit="login(event)">
+
+        <input type="email" id="correo" placeholder="Correo universitario">
+        <input type="password" id="password" placeholder="Contraseña">
+
+        <button type="submit">Ingresar</button>
+
+        <div class="error" id="error"></div>
+
+    </form>
+
+    <p style="text-align:center;margin-top:15px;">
+        ¿No tienes cuenta? <a href="registro.html">Regístrate</a>
+    </p>
+
+</div>
+
+</div>
+
+<script>
+
+function login(event){
+    event.preventDefault();
+
+    const correo = document.getElementById("correo").value.trim();
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    error.textContent = "";
+
+    if(!correo || !password){
+        error.textContent = "Completa todos los campos";
+        return;
+    }
+
+    if(!usuario){
+        error.textContent = "No existe una cuenta";
+        return;
+    }
+
+    if(correo === usuario.correo && password === usuario.password){
+
+        localStorage.setItem("sesionActiva", JSON.stringify(usuario));
+
+        // 🔥 flujo principal
+        if(!usuario.rol){
+            window.location.href = "perfil.html";
+        }else if(usuario.rol === "estudiante"){
+            window.location.href = "dashboard-estudiante.html";
+        }else{
+            window.location.href = "dashboard-profesor.html";
+        }
+
+    }else{
+        error.textContent = "Correo o contraseña incorrectos";
+    }
+}
+
+// auto-login
+window.onload = function(){
+
+    const sesion = JSON.parse(localStorage.getItem("sesionActiva"));
+
+    if(sesion){
+        if(sesion.rol === "estudiante"){
+            window.location.href = "dashboard-estudiante.html";
+        }else if(sesion.rol === "profesor"){
+            window.location.href = "dashboard-profesor.html";
+        }
+    }
+};
+
+</script>
+
+</body>
+</html>

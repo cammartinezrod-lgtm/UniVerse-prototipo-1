@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVerse | Tu vida universitaria en un solo lugar</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f8fafc;color:#1f2937;overflow-x:hidden}
+
+header{
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 8%;background:#fff;position:sticky;top:0;z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.05)
+}
+
+.logo{font-size:28px;font-weight:700;color:#6D28D9}
+
+nav a{
+text-decoration:none;margin:0 15px;color:#555;font-weight:500;
+transition:.3s
+}
+nav a:hover{color:#6D28D9}
+
+.botones a{
+text-decoration:none;padding:12px 22px;border-radius:12px;
+font-weight:600;display:inline-block
+}
+
+.login{border:2px solid #6D28D9;color:#6D28D9}
+.registro{background:#6D28D9;color:white;margin-left:10px}
+
+.hero{
+display:flex;align-items:center;justify-content:space-between;
+padding:80px 8%;background:linear-gradient(135deg,#fff,#f5f3ff)
+}
+
+.hero-text{width:50%}
+
+.hero-text h1{
+font-size:56px;line-height:1.2;margin-bottom:20px
+}
+
+.hero-text span{color:#6D28D9}
+
+.hero-text p{
+font-size:18px;line-height:1.7;color:#555;margin-bottom:30px
+}
+
+.hero-buttons{
+display:flex;gap:15px;flex-wrap:wrap
+}
+
+.hero-cta,.hero-secondary{
+padding:15px 30px;border-radius:12px;text-decoration:none;
+font-weight:600
+}
+
+.hero-cta{
+background:#6D28D9;color:white
+}
+
+.hero-secondary{
+border:2px solid #6D28D9;color:#6D28D9
+}
+
+.hero-image{
+width:45%;
+display:flex;
+justify-content:center;
+}
+
+.student-img{
+width:100%;
+max-width:450px;
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+.stats{
+display:flex;justify-content:space-around;
+background:white;margin:-40px 8% 40px;padding:30px;
+border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,.05)
+}
+
+.stat{text-align:center}
+.stat h2{color:#6D28D9;font-size:34px}
+
+.features{
+padding:80px 8%;
+text-align:center
+}
+
+.features h2{
+font-size:38px;
+margin-bottom:15px
+}
+
+.subtitle{
+color:#666;
+margin-bottom:50px
+}
+
+.grid-features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px
+}
+
+.feature-card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-decoration:none;
+color:inherit;
+box-shadow:0 5px 15px rgba(0,0,0,.04);
+transition:.3s
+}
+
+.feature-card:hover{
+transform:translateY(-8px)
+}
+
+.icon{
+font-size:42px;
+display:block;
+margin-bottom:15px
+}
+
+.feature-card h3{
+margin-bottom:10px;
+color:#6D28D9
+}
+
+.ai{
+margin:60px 8%;
+padding:60px 40px;
+border-radius:28px;
+background:linear-gradient(135deg,#6D28D9,#8B5CF6);
+color:white;
+text-align:center
+}
+
+.ai h2{font-size:40px;margin-bottom:15px}
+
+.btn-ai{
+display:inline-block;
+margin-top:20px;
+padding:15px 30px;
+background:white;
+color:#6D28D9;
+border-radius:12px;
+text-decoration:none;
+font-weight:700
+}
+
+.mentorias{
+margin:80px 8%;
+background:white;
+padding:60px 40px;
+border-radius:28px;
+text-align:center
+}
+
+.beneficios{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:25px
+}
+
+.item{
+background:#f3f4f6;
+padding:15px 20px;
+border-radius:12px;
+font-weight:600
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:50px;
+margin-top:60px
+}
+
+footer p{color:#cbd5e1}
+
+@media(max-width:768px){
+header{flex-direction:column;gap:15px}
+.hero{flex-direction:column-reverse;text-align:center}
+.hero-text,.hero-image{width:100%}
+.hero-text h1{font-size:38px}
+.stats{flex-direction:column;gap:20px;margin:20px 5%}
+.grid-features{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🌌 UniVerse</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="recursos.html">Recursos</a>
+<a href="empleos.html">Empleos</a>
+<a href="becas.html">Becas</a>
+<a href="comunidad.html">Comunidad</a>
+</nav>
+
+<div class="botones">
+<a href="login.html" class="login">Iniciar Sesión</a>
+<a href="registro.html" class="registro">Registrarse</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<h1>Todo tu ecosistema universitario en <span>UniVerse</span></h1>
+
+<p>
+Encuentra becas, prácticas profesionales, empleos, mentorías,
+cursos, recursos académicos y oportunidades para impulsar tu futuro.
+</p>
+
+<div class="hero-buttons">
+<a href="registro.html" class="hero-cta">🚀 Empezar Gratis</a>
+<a href="comunidad.html" class="hero-secondary">Explorar Comunidad</a>
+</div>
+</div>
+
+<div class="hero-image">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Estudiante" class="student-img">
+</div>
+</section>
+
+<section class="stats">
+<div class="stat"><h2>10,000+</h2><p>Estudiantes</p></div>
+<div class="stat"><h2>500+</h2><p>Becas Activas</p></div>
+<div class="stat"><h2>1,200+</h2><p>Empleos y Prácticas</p></div>
+<div class="stat"><h2>300+</h2><p>Mentores</p></div>
+</section>
+
+<section class="features">
+<h2>¿Qué puedes hacer en UniVerse?</h2>
+<p class="subtitle">Herramientas diseñadas para potenciar tu vida universitaria.</p>
+
+<div class="grid-features">
+
+<a href="recursos.html" class="feature-card">
+<span class="icon">📚</span>
+<h3>Biblioteca Digital</h3>
+<p>Apuntes, guías, exámenes y material académico.</p>
+</a>
+
+<a href="empleos.html" class="feature-card">
+<span class="icon">💼</span>
+<h3>Bolsa de Empleo</h3>
+<p>Prácticas y oportunidades laborales para estudiantes.</p>
+</a>
+
+<a href="becas.html" class="feature-card">
+<span class="icon">🏅</span>
+<h3>Becas</h3>
+<p>Convocatorias nacionales e internacionales.</p>
+</a>
+
+<a href="comunidad.html" class="feature-card">
+<span class="icon">🤝</span>
+<h3>Comunidad</h3>
+<p>Comparte experiencias y resuelve dudas.</p>
+</a>
+
+<a href="#" class="feature-card">
+<span class="icon">🤖</span>
+<h3>Asistente IA</h3>
+<p>Recomendaciones personalizadas para tu carrera.</p>
+</a>
+
+<a href="#" class="feature-card">
+<span class="icon">📄</span>
+<h3>CV y Entrevistas</h3>
+<p>Mejora tu perfil profesional.</p>
+</a>
+
+<a href="#" class="feature-card">
+<span class="icon">👨‍🏫</span>
+<h3>Mentoría Profesional</h3>
+<p>Recibe orientación de docentes y especialistas.</p>
+</a>
+
+<a href="#" class="feature-card">
+<span class="icon">📅</span>
+<h3>Eventos Universitarios</h3>
+<p>Talleres, conferencias y actividades académicas.</p>
+</a>
+
+<a href="#" class="feature-card">
+<span class="icon">🚀</span>
+<h3>Cursos y Certificaciones</h3>
+<p>Capacítate y fortalece tu perfil profesional.</p>
+</a>
+
+</div>
+</section>
+
+<section class="ai">
+<h2>🤖 UniVerse IA</h2>
+<p>Nuestra IA recomienda becas, cursos, empleos y mentores según tu perfil.</p>
+<a href="#" class="btn-ai">Probar IA Gratis</a>
+</section>
+
+<section class="mentorias">
+<h2>👨‍🏫 Mentorías Profesionales</h2>
+<p>Conecta con profesionales, docentes y expertos para acelerar tu crecimiento académico y laboral.</p>
+
+<div class="beneficios">
+<div class="item">🎯 Orientación Profesional</div>
+<div class="item">📚 Apoyo Académico</div>
+<div class="item">💼 Preparación Laboral</div>
+<div class="item">🚀 Desarrollo de Carrera</div>
+</div>
+</section>
+
+<footer>
+<h3>🌌 UniVerse</h3>
+<p>Tu vida universitaria en un solo lugar. © 2026</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniVerse | Comunidad Estudiantil</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+}
+
+/* HEADER (Consistencia visual) */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+    position:sticky;
+    top:0;
+    z-index: 1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#6D28D9;
+}
+
+nav a{
+    text-decoration:none;
+    margin:0 15px;
+    color:#555;
+    font-weight:500;
+    transition: color 0.3s;
+}
+
+nav a:hover{
+    color:#6D28D9;
+}
+
+.botones a{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.login{
+    border:2px solid #6D28D9;
+    color:#6D28D9;
+}
+
+.registro{
+    background:#6D28D9;
+    color:white;
+    margin-left:10px;
+}
+
+/* ESTRUCTURA PRINCIPAL DE LA COMUNIDAD (Dos Columnas) */
+.forum-container {
+    padding: 50px 8% 80px 8%;
+    display: flex;
+    gap: 30px;
+}
+
+/* COLUMNA IZQUIERDA: MURO PRINCIPAL */
+.feed {
+    width: 70%;
+}
+
+/* CUADRO PARA CREAR PUBLICACIÓN */
+.create-post {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.03);
+    margin-bottom: 30px;
+}
+
+.create-post h2 {
+    font-size: 18px;
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+.create-post textarea {
+    width: 100%;
+    height: 80px;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+.create-post textarea:focus {
+    border-color: #6D28D9;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-options {
+    display: flex;
+    gap: 15px;
+}
+
+.opt-btn {
+    background: #f1f5f9;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.opt-btn:hover {
+    background: #e2e8f0;
+}
+
+.publish-btn {
+    background: #6D28D9;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.publish-btn:hover {
+    background: #5b21b6;
+}
+
+/* TARJETAS DE PUBLICACIONES */
+.post-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.03);
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.post-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,.05);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    background: #6D28D9;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.username {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 15px;
+}
+
+.post-time {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.forum-tag {
+    padding: 4px 12px;
+    background: #f3f4f6;
+    color: #4b5563;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.post-card p {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.post-footer {
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+.interaction-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.interaction-btn:hover {
+    color: #6D28D9;
+}
+
+/* COLUMNA DERECHA: SIDEBAR DE TENDENCIAS */
+.sidebar {
+    width: 30%;
+}
+
+.widget {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.03);
+    margin-bottom: 30px;
+}
+
+.widget h3 {
+    font-size: 16px;
+    color: #1f2937;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.trend-item {
+    margin-bottom: 15px;
+    display: block;
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.trend-item:hover {
+    color: #6D28D9;
+}
+
+.trend-item span {
+    display: block;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+/* FOOTER */
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:950px){
+    .forum-container {
+        flex-direction: column;
+    }
+    .feed, .sidebar {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌌 UniVerse</div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="recursos.html">Recursos</a>
+        <a href="empleos.html">Empleos</a>
+        <a href="becas.html">Becas</a>
+        <a href="comunidad.html">Comunidad</a>
+    </nav>
+    <div class="botones">
+        <a href="login.html" class="login">Iniciar Sesión</a>
+        <a href="registro.html" class="registro">Registrarse</a>
+    </div>
+</header>
+
+<main class="forum-container">
+    
+    <section class="feed">
+        
+        <div class="create-post">
+            <h2>¿Tienes alguna duda o quieres compartir algo, Universitario?</h2>
+            <textarea placeholder="Pregunta sobre algún curso, comparte un tip o abre un debate estudiantil..."></textarea>
+            <div class="post-actions">
+                <div class="post-options">
+                    <button class="opt-btn">📷 Imagen</button>
+                    <button class="opt-btn">📊 Encuesta</button>
+                </div>
+                <button class="publish-btn">Publicar Anuncio</button>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="avatar-placeholder">ML</div>
+                    <div>
+                        <span class="username">Mateo López</span>
+                        <span class="post-time">• Hace 20 min</span>
+                    </div>
+                </div>
+                <span class="forum-tag" style="background:#e0f2fe; color:#0369a1;">Ciencias</span>
+            </div>
+            <p>¿Alguien por aquí que haya llevado Cálculo Integral con el profesor Quiroz? Escuché que sus exámenes parciales son bastante complejos y me gustaría saber qué temas prioriza más o si tiene algún método de estudio que recomienden.</p>
+            <div class="post-footer">
+                <button class="interaction-btn">💜 Me gusta (14)</button>
+                <button class="interaction-btn">💬 Comentarios (5)</button>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="avatar-placeholder" style="background:#8B5CF6;">AN</div>
+                    <div>
+                        <span class="username">Anónimo</span>
+                        <span class="post-time">• Hace 2 horas</span>
+                    </div>
+                </div>
+                <span class="forum-tag" style="background:#fef3c7; color:#d97706;">General</span>
+            </div>
+            <p>¡Hola chicos! Para los que están armando su currículum por primera vez para las prácticas, les paso el tip de que en la pestaña de "Empleos" de aquí de UniVerse acaban de subir un formato súper limpio. Me sirvió bastante para ordenar mis proyectos de la facultad.</p>
+            <div class="post-footer">
+                <button class="interaction-btn">💜 Me gusta (32)</button>
+                <button class="interaction-btn">💬 Comentarios (2)</button>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="avatar-placeholder" style="background:#059669;">SR</div>
+                    <div>
+                        <span class="username">Sofia Rodriguez</span>
+                        <span class="post-time">• Hace 5 horas</span>
+                    </div>
+                </div>
+                <span class="forum-tag" style="background:#f3e8ff; color:#6D28D9;">Diseño</span>
+            </div>
+            <p>Acabo de subir un pack con paletas de colores y reglas de tipografías que nos dio el docente para Diseño Web I. Está en formato PDF dentro de la sección de "Recursos" por si a alguien le sirve para su entrega final de esta semana. ¡Éxitos!</p>
+            <div class="post-footer">
+                <button class="interaction-btn">💜 Me gusta (45)</button>
+                <button class="interaction-btn">💬 Comentarios (9)</button>
+            </div>
+        </div>
+
+    </section>
+
+    <aside class="sidebar">
+        
+        <div class="widget">
+            <h3>Temas en Tendencia 🔥</h3>
+            <a href="#" class="trend-item">
+                #ExamenesParciales
+                <span>124 publicaciones esta semana</span>
+            </a>
+            <a href="#" class="trend-item">
+                #PracticasPre
+                <span>89 publicaciones esta semana</span>
+            </a>
+            <a href="#" class="trend-item">
+                #BecasSantander
+                <span>56 publicaciones esta semana</span>
+            </a>
+        </div>
+
+        <div class="widget">
+            <h3>Normas del Foro 📜</h3>
+            <p style="font-size: 13px; color:#6b7280; line-height: 1.6;">
+                Este es un espacio seguro de apoyo mutuo. Respeta las opiniones de tus compañeros, comparte información verídica y evita el spam. ¡Hagamos crecer la comunidad!
+            </p>
+        </div>
+
+    </aside>
+
+</main>
+
+<footer>
+    <h3>🌌 UniVerse</h3>
+    <p>Tu vida universitaria en un solo lugar.</p>
+</footer>
+
+</body>
+</html>

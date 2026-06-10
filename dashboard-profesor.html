@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniVerse | Dashboard Profesor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(180deg,#2563EB,#7C3AED);
+    color:white;
+    position:fixed;
+    padding:25px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+.menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:rgba(255,255,255,.15);
+}
+
+/* MAIN */
+
+.main{
+    margin-left:260px;
+    width:100%;
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.search{
+    width:350px;
+}
+
+.search input{
+    width:100%;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#2563EB;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.card h3{
+    color:#2563EB;
+    margin-bottom:10px;
+}
+
+.numero{
+    font-size:30px;
+    font-weight:700;
+    color:#7C3AED;
+}
+
+/* PANEL PRINCIPAL */
+
+.panel{
+    margin-top:25px;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    color:white;
+    padding:25px;
+    border-radius:20px;
+}
+
+.panel button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#2563EB;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* SECCIONES */
+
+.section{
+    margin-top:30px;
+}
+
+.section h2{
+    margin-bottom:20px;
+}
+
+.item{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.item button{
+    margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#2563EB;
+    color:white;
+    cursor:pointer;
+}
+
+.chatbot{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#2563EB;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🌌 UniVerse
+</div>
+
+<div class="menu">
+
+<a href="#">🏠 Inicio</a>
+<a href="#">👨‍🎓 Estudiantes</a>
+<a href="#">👨‍🏫 Mentorías</a>
+<a href="#">📚 Recursos</a>
+<a href="#">📅 Horarios</a>
+<a href="#">📢 Eventos</a>
+<a href="#">⭐ Evaluaciones</a>
+<a href="#">⚙ Configuración</a>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+
+<div class="search">
+<input type="text" placeholder="Buscar estudiantes o mentorías...">
+</div>
+
+<div class="profile">
+<div class="avatar">P</div>
+<div>
+<b>Dr. Juan Pérez</b><br>
+Profesor Mentor
+</div>
+</div>
+
+</div>
+
+<!-- RESUMEN -->
+
+<div class="grid">
+
+<div class="card">
+<h3>👨‍🎓 Estudiantes</h3>
+<div class="numero">84</div>
+</div>
+
+<div class="card">
+<h3>👨‍🏫 Mentorías</h3>
+<div class="numero">27</div>
+</div>
+
+<div class="card">
+<h3>📚 Recursos</h3>
+<div class="numero">46</div>
+</div>
+
+<div class="card">
+<h3>⭐ Valoración</h3>
+<div class="numero">4.9</div>
+</div>
+
+</div>
+
+<!-- PANEL PRINCIPAL -->
+
+<div class="panel">
+
+<h2>🚀 Centro de Mentorías UniVerse</h2>
+
+<p>
+Comparte tu experiencia profesional, orienta estudiantes,
+ayúdalos a mejorar su CV, prepararse para entrevistas
+y planificar su desarrollo profesional.
+</p>
+
+<button>
+Ver Solicitudes Pendientes
+</button>
+
+</div>
+
+<!-- SOLICITUDES -->
+
+<div class="section">
+
+<h2>📨 Solicitudes de Mentoría</h2>
+
+<div class="item">
+<h3>Ana Torres</h3>
+<p>Ingeniería de Sistemas - Ciclo 6</p>
+<button>Aceptar Mentoría</button>
+</div>
+
+<div class="item">
+<h3>Carlos Mendoza</h3>
+<p>Administración de Empresas - Ciclo 8</p>
+<button>Aceptar Mentoría</button>
+</div>
+
+</div>
+
+<!-- HORARIOS -->
+
+<div class="section">
+
+<h2>📅 Próximas Sesiones</h2>
+
+<div class="item">
+<h3>Sesión de Empleabilidad</h3>
+<p>Martes - 6:00 PM</p>
+<button>Ingresar</button>
+</div>
+
+<div class="item">
+<h3>Revisión de CV</h3>
+<p>Jueves - 7:00 PM</p>
+<button>Ingresar</button>
+</div>
+
+</div>
+
+<!-- RECURSOS -->
+
+<div class="section">
+
+<h2>📚 Recursos Compartidos</h2>
+
+<div class="item">
+<h3>Guía para Entrevistas Laborales</h3>
+<p>PDF compartido con estudiantes.</p>
+<button>Editar</button>
+</div>
+
+<div class="item">
+<h3>Plantilla Profesional de CV</h3>
+<p>Material actualizado.</p>
+<button>Editar</button>
+</div>
+
+</div>
+
+<!-- EVENTOS -->
+
+<div class="section">
+
+<h2>📢 Próximos Eventos</h2>
+
+<div class="item">
+<h3>Taller: Construcción de Marca Personal</h3>
+<p>20 de Junio - 7:00 PM</p>
+<button>Gestionar</button>
+</div>
+
+<div class="item">
+<h3>Conferencia de Innovación y Tecnología</h3>
+<p>25 de Junio - 6:00 PM</p>
+<button>Gestionar</button>
+</div>
+
+</div>
+
+</div>
+
+<div class="chatbot">
+🤖
+</div>
+
+</body>
+</html>
